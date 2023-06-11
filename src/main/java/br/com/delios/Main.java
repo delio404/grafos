@@ -16,7 +16,6 @@ public class Main {
         grafo.adiconarVertice("PA");
 
         System.out.println("O grafo G possoui os seguintes verices \n");
-
         for(Vertice vertice: grafo.getVertices()){
             System.out.println("\t\t  " +"__Vertice ->   "+ vertice.getRotulo()+"\n");
         }
