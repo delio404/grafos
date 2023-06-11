@@ -20,6 +20,5 @@ public class Main {
             System.out.println("\t\t  " +"__Vertice ->   "+ vertice.getRotulo()+"\n");
         }
 
-        System.out.println("Hello world  !");
     }
 }
