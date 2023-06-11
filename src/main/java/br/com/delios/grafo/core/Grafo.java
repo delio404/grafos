@@ -22,4 +22,22 @@ public class Grafo {
         qtdMaximaVertices= qtdMaximaVertices;
         isQtdMaximaDefinida=true;
     }
+
+    public void adiconarVertice(String rotulo) throws Exception{
+        if(qtdAtualVertices <= qtdMaximaVertices -1){
+            Vertice novoVertice= new Vertice(rotulo);
+            this.vertices.add(novoVertice);
+            this.rotulosEmIndices.put(rotulo, qtdAtualVertices);
+            qtdAtualVertices++;
+        }else {
+            throw new Exception(" A quantidade de vertices permitidas ( "+ qtdMaximaVertices +" ) foi execidida. ");
+        }
+    }
+
+    public List<Vertice>getVertices(){
+        return this.vertices;
+    }
+
+
+
 }
