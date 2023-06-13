@@ -12,6 +12,14 @@ public class Grafo {
     private  Map <String , Integer> rotulosEmIndices= new HashMap<String, Integer>();
     private List<Vertice> vertices= new ArrayList<Vertice>();
 
+    public Vertice getVertice(String rotulo){
+        int indice= this.rotulosEmIndices.get(rotulo);
+        return this.vertices.get(indice);
+    }
+
+    private void existeVerticeOrThrow(String rotulo) {
+    }
+
     public Grafo(){
         qtdMaximaVertices=10;
     }
