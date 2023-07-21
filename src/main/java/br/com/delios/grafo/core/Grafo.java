@@ -56,7 +56,7 @@ public class Grafo {
 //    }
 
     public Grafo(){
-        qtdMaximaVertices=10;
+        qtdMaximaVertices=15;
     }
     public Grafo(int qtdMaximaVertices) {
         if(qtdMaximaVertices <=0){
