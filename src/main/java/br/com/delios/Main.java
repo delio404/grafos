@@ -2,6 +2,7 @@ package br.com.delios;
 
 import br.com.delios.grafo.core.Grafo;
 import br.com.delios.grafo.core.Vertice;
+import br.com.delios.grafo.search.BuscaEmLargura;
 import br.com.delios.grafo.search.BuscaEmProfunidade;
 
 import java.util.List;
@@ -35,11 +36,19 @@ public class Main {
         grafo.conectarVertices("J","K");
         grafo.conectarVertices("E","A");
 
-        List<String> caminho= BuscaEmProfunidade.getInstance().buscar(grafo,"D","H");
+        List<String> caminho= BuscaEmProfunidade.getInstance().buscar(grafo,"D","K");
         System.out.println("Caminho feito pela busca em profundidade ");
 
-        for(String passo:caminho){
-            System.out.println(passo+" ");
+        for(String passo:caminho) {
+            System.out.println(" \t\t "+passo + " ");
+        }
+        caminho= BuscaEmLargura.getInstance().buscar(grafo,"B","G");
+        System.out.println();
+        System.out.println("Caminho feito por uma busca em largura");
+        for (String passo: caminho){
+            System.out.println(" \t\t "+passo + " ");
+        }
+
 
 
 
@@ -83,7 +92,7 @@ public class Main {
 //        adjacentes=grafo.getAdjacencias("D");
 //        for(Vertice vertice: adjacentes){
 //            System.out.println("\t\t\t\t \t\t\t\t __  "+vertice.getRotulo()+" ");
-        }
+
 
 
 
