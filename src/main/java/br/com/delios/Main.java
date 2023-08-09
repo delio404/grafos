@@ -49,7 +49,6 @@ public class Main {
             System.out.println(" \t\t "+passo + " ");
         }
 
-
         Grafo arvore = grafo.arvoreGeradoraPorProfundidade();
         System.out.println("\n");
         System.out.println("\t\t------ Arvore Geradora ----\n");
