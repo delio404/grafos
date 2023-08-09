@@ -50,6 +50,20 @@ public class Main {
         }
 
 
+        Grafo arvore = grafo.arvoreGeradoraPorProfundidade();
+        System.out.println("\n");
+        System.out.println("\t\t------ Arvore Geradora ----\n");
+        System.out.println("\t\t\t\t----- Vertices ----");
+        for (Vertice v: arvore.getVertices()){
+            System.out.println("\t\t\t\t\t\t  "+v.getRotulo());
+        }
+
+        System.out.println("\n\t\t \t\t ----- Arestas ----");
+        for (Vertice v: arvore.getVertices()){
+            for (Vertice adj: arvore.getAdjacencias(v.getRotulo())){
+                System.out.println("\t\t\t\t \t\t  "+v.getRotulo()+adj.getRotulo());
+            }
+        }
 
 
 

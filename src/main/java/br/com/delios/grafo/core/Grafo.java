@@ -1,9 +1,7 @@
 package br.com.delios.grafo.core;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 public class Grafo {
     private int qtdMaximaVertices;
 
@@ -81,6 +79,53 @@ public class Grafo {
         return this.vertices;
     }
 
+
+
+    public Grafo arvoreGeradoraPorProfundidade() throws Exception{
+        Grafo arvore= new Grafo();
+        Stack<Vertice> roloDeBarbante= new Stack<Vertice>();
+        LinkedHashSet<String> verticeVisitados = new LinkedHashSet<String>();
+
+        List<Vertice> vertices=getVertices();
+
+        for (Vertice v: vertices){
+            arvore.adiconarVertice(v.getRotulo());
+        }
+
+        Vertice verticePontoDePartida= vertices.get(0);
+
+        verticeVisitados.add(verticePontoDePartida.getRotulo());
+        roloDeBarbante.push(verticePontoDePartida);
+
+        while (!roloDeBarbante.empty()){
+            Vertice verticeAnalisado= roloDeBarbante.peek();
+            Vertice proximoVertice = obterProximoVertice(verticeAnalisado,verticeVisitados);
+            if (proximoVertice==null){
+                roloDeBarbante.pop();
+            }else {
+                String rotulo= proximoVertice.getRotulo();
+                verticeVisitados.add(rotulo);
+                roloDeBarbante.push(proximoVertice);
+                arvore.conectarVertices(verticeAnalisado.getRotulo(), proximoVertice.getRotulo());
+            }
+        }
+
+        return arvore;
+
+
+    }
+
+    private Vertice obterProximoVertice(Vertice verticeAnalisado, LinkedHashSet<String> verticeVisitados) {
+        List<Vertice> adjacencias= getAdjacencias(verticeAnalisado.getRotulo());
+        for (int i=0; i<adjacencias.size(); i++){
+            Vertice adjacencia= adjacencias.get(i);
+            boolean naoVisitadoAinda= !verticeVisitados.contains(adjacencia.getRotulo());
+            if (naoVisitadoAinda){
+                return adjacencia;
+            }
+        }
+        return null;
+    }
 
 
 }
