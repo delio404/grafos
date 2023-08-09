@@ -7,13 +7,13 @@ import java.util.*;
 
 public class BuscaEmLargura {
     private static BuscaEmLargura instance;
-//    private BuscaEmLargura(){}
-//    public  static BuscaEmLargura getInstance(){
-//        if (instance==null){
-//            return new BuscaEmLargura();
-//        }
-//        return instance;
-//    }
+    private BuscaEmLargura(){}
+    public  static BuscaEmLargura getInstance(){
+        if (instance==null){
+            return new BuscaEmLargura();
+        }
+        return instance;
+    }
 public List<String> buscar(Grafo grafo, String origem , String destino){
     Queue<String> roloDeBarbante = new LinkedList<String>();
     LinkedHashSet<String> verticesVisitados = new LinkedHashSet<String>();
